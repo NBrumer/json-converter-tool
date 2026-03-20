@@ -1,6 +1,6 @@
 # Free JSON Tools
 
-A small website with simple JSON utilities.
+A small website with simple JSON and CSV utilities.
 
 ## Pages
 
@@ -8,6 +8,8 @@ A small website with simple JSON utilities.
 - /json-formatter
 - /json-minifier
 - /json-to-csv
+- /json-to-yaml
+- /csv-to-json
 
 ## Features
 
@@ -15,6 +17,8 @@ A small website with simple JSON utilities.
 - Format JSON
 - Minify JSON
 - Convert JSON to CSV
+- Convert JSON to YAML
+- Convert CSV to JSON
 - Upload JSON files
 - Download CSV files
 
@@ -24,3 +28,4 @@ A small website with simple JSON utilities.
 - TypeScript
 - Tailwind CSS
 - json2csv
+- js-yaml

@@ -22,42 +22,39 @@ export default function Home() {
       description: "Convert JSON arrays of objects into CSV.",
       href: "/json-to-csv",
     },
+    {
+      title: "JSON to YAML Converter",
+      description: "Convert JSON into YAML format.",
+      href: "/json-to-yaml",
+    },
+    {
+      title: "CSV to JSON Converter",
+      description: "Convert simple CSV data into JSON.",
+      href: "/csv-to-json",
+    },
   ];
 
   return (
     <main className="min-h-screen bg-white px-4 py-10 text-black">
       <div className="mx-auto max-w-5xl">
-        <h1 className="text-4xl font-bold tracking-tight">Free JSON Tools</h1>
-
-        <p className="mt-3 max-w-3xl text-lg text-gray-600">
-          A collection of simple JSON tools for developers, analysts, testers,
-          and anyone who works with structured data.
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight">
+          Free JSON Tools
+        </h1>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {tools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="rounded-xl border border-gray-200 bg-white p-6 transition hover:shadow-md"
+              className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-md"
             >
               <h2 className="text-xl font-semibold">{tool.title}</h2>
-              <p className="mt-2 text-sm text-gray-700">{tool.description}</p>
-              <p className="mt-4 text-sm font-medium text-black">
-                Open tool →
+              <p className="mt-2 text-sm text-gray-700">
+                {tool.description}
               </p>
             </Link>
           ))}
         </div>
-
-        <section className="mt-12 max-w-3xl">
-          <h2 className="text-2xl font-semibold">About this project</h2>
-          <p className="mt-3 text-gray-700">
-            This website is being built as a lightweight toolbox with multiple
-            focused utilities. Each tool has its own page, making the site
-            easier to use and easier to grow over time.
-          </p>
-        </section>
       </div>
     </main>
   );

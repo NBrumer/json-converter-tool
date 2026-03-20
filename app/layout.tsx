@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Free JSON Tools",
   description:
-    "Free online JSON tools including JSON validator, JSON formatter, JSON minifier, and JSON to CSV converter.",
+    "Free online JSON tools including validator, formatter, minifier, JSON to CSV, JSON to YAML, and CSV to JSON converter.",
 };
 
 export default function RootLayout({
