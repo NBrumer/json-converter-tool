@@ -33,6 +33,10 @@ export default function Home() {
     return parsed;
   };
 
+  const parseAnyJsonSafely = () => {
+    return JSON.parse(jsonInput);
+  };
+
   const handleConvert = () => {
     try {
       setError("");
@@ -60,13 +64,51 @@ export default function Home() {
       setError("");
       setMessage("");
 
-      parseJsonSafely();
-      setMessage("JSON is valid and ready for conversion.");
+      parseAnyJsonSafely();
+      setMessage("JSON is valid.");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
       } else {
         setError("Invalid JSON.");
+      }
+    }
+  };
+
+  const handleFormat = () => {
+    try {
+      setError("");
+      setMessage("");
+
+      const parsed = parseAnyJsonSafely();
+      const formatted = JSON.stringify(parsed, null, 2);
+
+      setJsonInput(formatted);
+      setMessage("JSON formatted successfully.");
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Failed to format JSON.");
+      }
+    }
+  };
+
+  const handleMinify = () => {
+    try {
+      setError("");
+      setMessage("");
+
+      const parsed = parseAnyJsonSafely();
+      const minified = JSON.stringify(parsed);
+
+      setJsonInput(minified);
+      setMessage("JSON minified successfully.");
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Failed to minify JSON.");
       }
     }
   };
@@ -109,23 +151,39 @@ export default function Home() {
 
       const text = await file.text();
       setJsonInput(text);
+      setCsvOutput("");
       setMessage(`File "${file.name}" loaded successfully.`);
     } catch {
       setError("Failed to read the file.");
     }
   };
 
+  const handleClear = () => {
+    setJsonInput("");
+    setCsvOutput("");
+    setError("");
+    setMessage("Input and output cleared.");
+  };
+
   return (
     <main className="min-h-screen bg-white px-4 py-10 text-black">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <h1 className="text-4xl font-bold tracking-tight">
-          Free JSON to CSV Converter
+          Free JSON Tools
         </h1>
 
         <p className="mt-3 max-w-3xl text-lg text-gray-600">
-          Convert JSON to CSV online, validate your JSON, upload JSON files,
-          and download the converted CSV in one click.
+          Validate, format, minify, and convert JSON to CSV online for free.
         </p>
+
+        <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-4">
+          <h2 className="text-lg font-semibold">Available actions</h2>
+          <p className="mt-2 text-sm text-gray-700">
+            Use this page as a mini JSON toolbox. Paste JSON, validate it,
+            format it for readability, minify it for compact storage, or
+            convert arrays of objects into CSV.
+          </p>
+        </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div>
@@ -136,17 +194,11 @@ export default function Home() {
             <textarea
               value={jsonInput}
               onChange={(e) => setJsonInput(e.target.value)}
-              className="h-[360px] w-full rounded-lg border border-gray-300 bg-white p-4 font-mono text-sm text-black outline-none"
+              className="h-[420px] w-full rounded-lg border border-gray-300 bg-white p-4 font-mono text-sm text-black outline-none"
+              placeholder="Paste your JSON here"
             />
 
             <div className="mt-4 flex flex-wrap gap-3">
-              <button
-                onClick={handleConvert}
-                className="rounded-lg bg-black px-4 py-2 text-white"
-              >
-                Convert to CSV
-              </button>
-
               <button
                 onClick={handleValidate}
                 className="rounded-lg border border-black px-4 py-2 text-black"
@@ -155,10 +207,38 @@ export default function Home() {
               </button>
 
               <button
+                onClick={handleFormat}
+                className="rounded-lg border border-black px-4 py-2 text-black"
+              >
+                Format JSON
+              </button>
+
+              <button
+                onClick={handleMinify}
+                className="rounded-lg border border-black px-4 py-2 text-black"
+              >
+                Minify JSON
+              </button>
+
+              <button
+                onClick={handleConvert}
+                className="rounded-lg bg-black px-4 py-2 text-white"
+              >
+                Convert to CSV
+              </button>
+
+              <button
                 onClick={() => fileInputRef.current?.click()}
                 className="rounded-lg border border-gray-400 px-4 py-2 text-black"
               >
                 Upload JSON file
+              </button>
+
+              <button
+                onClick={handleClear}
+                className="rounded-lg border border-gray-300 px-4 py-2 text-gray-700"
+              >
+                Clear
               </button>
 
               <input
@@ -179,7 +259,8 @@ export default function Home() {
             <textarea
               value={csvOutput}
               readOnly
-              className="h-[360px] w-full rounded-lg border border-gray-300 bg-gray-50 p-4 font-mono text-sm text-black outline-none"
+              className="h-[420px] w-full rounded-lg border border-gray-300 bg-gray-50 p-4 font-mono text-sm text-black outline-none"
+              placeholder="CSV result will appear here"
             />
 
             <div className="mt-4">
@@ -205,17 +286,44 @@ export default function Home() {
           </div>
         )}
 
+        <section className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="rounded-xl border border-gray-200 p-5">
+            <h3 className="text-lg font-semibold">Validate JSON</h3>
+            <p className="mt-2 text-sm text-gray-700">
+              Check whether your JSON syntax is correct before using it in your
+              app, test, or data pipeline.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 p-5">
+            <h3 className="text-lg font-semibold">Format JSON</h3>
+            <p className="mt-2 text-sm text-gray-700">
+              Make your JSON easier to read by applying clean indentation and
+              spacing.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 p-5">
+            <h3 className="text-lg font-semibold">Convert JSON to CSV</h3>
+            <p className="mt-2 text-sm text-gray-700">
+              Turn arrays of objects into CSV for Excel, spreadsheets, reports,
+              or quick data inspection.
+            </p>
+          </div>
+        </section>
+
         <section className="mt-12 max-w-3xl">
-          <h2 className="text-2xl font-semibold">About this tool</h2>
+          <h2 className="text-2xl font-semibold">About this page</h2>
           <p className="mt-3 text-gray-700">
-            This free JSON to CSV converter helps developers, analysts, and QA
-            engineers quickly transform JSON arrays into CSV format. You can
-            paste raw JSON, validate it before conversion, upload a JSON file,
-            and download the final CSV result instantly.
+            This free JSON toolbox is designed for developers, analysts, testers,
+            and anyone who needs quick access to common JSON utilities in the
+            browser. You can validate JSON, format it, minify it, upload a JSON
+            file, and convert arrays to CSV without leaving the page.
           </p>
           <p className="mt-3 text-gray-700">
-            This is useful when you need to prepare structured data for Excel,
-            Google Sheets, reporting, data migration, or manual review.
+            In the next steps, this project will grow into a multi-page tool
+            website with separate utilities for JSON formatting, validation,
+            conversion, and more.
           </p>
         </section>
       </div>

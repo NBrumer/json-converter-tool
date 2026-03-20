@@ -1,17 +1,13 @@
+# Free JSON Tools
 
-Сохрани.
-
-Если будет ругаться из-за вложенного блока кода в markdown, просто вставь такой упрощённый вариант:
-
-```md
-# JSON Converter Tool
-
-A simple online tool to convert JSON to CSV.
+A simple web app for common JSON tasks.
 
 ## Features
 
-- Convert JSON to CSV
 - Validate JSON
+- Format JSON
+- Minify JSON
+- Convert JSON to CSV
 - Upload JSON files
 - Download CSV output
 
@@ -21,3 +17,7 @@ A simple online tool to convert JSON to CSV.
 - TypeScript
 - Tailwind CSS
 - json2csv
+
+## Current Goal
+
+Build a small tool website for developers and analysts with multiple useful JSON utilities.

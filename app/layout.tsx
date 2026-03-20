@@ -13,10 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Free JSON to CSV Converter",
+  title: "Free JSON Tools - Validate, Format, Minify, Convert to CSV",
   description:
-    "Convert JSON to CSV online, validate JSON, upload files, and download CSV instantly.",
+    "Free online JSON tools to validate JSON, format JSON, minify JSON, upload JSON files, and convert JSON to CSV.",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
