@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Free JSON Tools - Validate, Format, Minify, Convert to CSV",
+  title: "Free JSON Tools",
   description:
-    "Free online JSON tools to validate JSON, format JSON, minify JSON, upload JSON files, and convert JSON to CSV.",
+    "Free online JSON tools including JSON validator, JSON formatter, JSON minifier, and JSON to CSV converter.",
 };
 
 export default function RootLayout({

@@ -1,6 +1,13 @@
 # Free JSON Tools
 
-A simple web app for common JSON tasks.
+A small website with simple JSON utilities.
+
+## Pages
+
+- /json-validator
+- /json-formatter
+- /json-minifier
+- /json-to-csv
 
 ## Features
 
@@ -9,7 +16,7 @@ A simple web app for common JSON tasks.
 - Minify JSON
 - Convert JSON to CSV
 - Upload JSON files
-- Download CSV output
+- Download CSV files
 
 ## Tech Stack
 
@@ -17,7 +24,3 @@ A simple web app for common JSON tasks.
 - TypeScript
 - Tailwind CSS
 - json2csv
-
-## Current Goal
-
-Build a small tool website for developers and analysts with multiple useful JSON utilities.
