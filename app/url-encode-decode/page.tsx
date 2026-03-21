@@ -59,7 +59,7 @@ export default function UrlEncodeDecodePage() {
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               onClick={handleEncode}
-              className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 transition"
             >
               Encode URL
             </button>

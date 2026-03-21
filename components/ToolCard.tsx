@@ -9,7 +9,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       href={tool.href}
-      className="rounded-xl border border-gray-200 bg-white p-6 transition hover:shadow-md"
+      className="rounded-xl border border-gray-200 bg-white p-6 transition hover:shadow-lg hover:-translate-y-1"
     >
       <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
         {tool.category}

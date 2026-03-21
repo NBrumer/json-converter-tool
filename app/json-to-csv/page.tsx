@@ -125,7 +125,7 @@ export default function JsonToCsvPage() {
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               onClick={handleConvert}
-              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 transition"
             >
               Convert to CSV
             </button>
@@ -161,7 +161,7 @@ export default function JsonToCsvPage() {
           <div className="mt-4">
             <button
               onClick={handleDownloadCsv}
-              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 transition hover:bg-blue-700 px-4 py-2 text-white"
             >
               Download CSV
             </button>

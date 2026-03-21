@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   },
   description:
     "Free online tools for JSON, CSV, YAML, Base64, URLs, timestamps, and other developer-friendly data tasks.",
-};
+    verification: {
+      google: "Q2bgUNoSbw8_uZfnqqt6C8nS3t8Vv9eGJeQyW4vp96E"
+    }
+  };
 
 export default function RootLayout({
   children,
@@ -23,6 +26,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+       <head>
+    <meta
+      name="google-site-verification"
+      content="Q2bgUNoSbw8_uZfnqqt6C8nS3t8Vv9eGJeQyW4vp96E"
+    />
+  </head>
       <body className="bg-white text-gray-900">
         <GoogleAnalytics gaId={gaId} />
         <Header />

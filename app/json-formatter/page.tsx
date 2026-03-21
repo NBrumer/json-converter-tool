@@ -53,7 +53,7 @@ export default function JsonFormatterPage() {
         <div className="mt-4">
           <button
             onClick={handleFormat}
-            className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
+            className="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 transition"
           >
             Format JSON
           </button>

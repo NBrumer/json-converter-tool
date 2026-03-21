@@ -91,7 +91,7 @@ export default function TimestampConverterPage() {
             />
             <button
               onClick={handleTimestampToDate}
-              className="mt-3 rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 transition"
             >
               Convert timestamp to date
             </button>
