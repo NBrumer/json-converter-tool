@@ -1,7 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import BackLink from "../../components/BackLink";
+import PageContainer from "../../components/PageContainer";
+import StatusMessage from "../../components/StatusMessage";
+import ToolHeader from "../../components/ToolHeader";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function JsonValidatorPage() {
   const [jsonInput, setJsonInput] = useState(`{
@@ -28,50 +32,57 @@ export default function JsonValidatorPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white px-4 py-10 text-black">
-      <div className="mx-auto max-w-4xl">
-        <Link href="/" className="text-sm text-gray-600 hover:underline">
-          ← Back to all tools
-        </Link>
+    <PageContainer>
+      <BackLink />
+      <ToolHeader
+        title="JSON Validator"
+        description="Check whether your JSON is valid."
+      />
 
-        <h1 className="mt-4 text-4xl font-bold">JSON Validator</h1>
-        <p className="mt-3 text-lg text-gray-600">
-          Check whether your JSON is valid.
-        </p>
+      <div className="mt-8">
+        <label className="mb-2 block text-sm font-medium text-gray-700">
+          JSON input
+        </label>
 
-        <div className="mt-8">
-          <label className="mb-2 block text-sm font-medium text-gray-700">
-            JSON input
-          </label>
+        <textarea
+          value={jsonInput}
+          onChange={(e) => setJsonInput(e.target.value)}
+          className="h-[360px] w-full rounded-lg border border-gray-300 bg-white p-4 font-mono text-sm text-black outline-none"
+        />
 
-          <textarea
-            value={jsonInput}
-            onChange={(e) => setJsonInput(e.target.value)}
-            className="h-[360px] w-full rounded-lg border border-gray-300 bg-white p-4 font-mono text-sm text-black outline-none"
-          />
-
-          <div className="mt-4">
-            <button
-              onClick={handleValidate}
-              className="rounded-lg bg-black px-4 py-2 text-white"
-            >
-              Validate JSON
-            </button>
-          </div>
+        <div className="mt-4">
+          <button
+            onClick={handleValidate}
+            className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
+          >
+            Validate JSON
+          </button>
         </div>
-
-        {message && (
-          <div className="mt-6 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-700">
-            {message}
-          </div>
-        )}
-
-        {error && (
-          <div className="mt-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-            {error}
-          </div>
-        )}
       </div>
-    </main>
+
+      <StatusMessage message={message} error={error} />
+      <RelatedTools currentHref="/json-validator" />
+      <section className="mt-12 max-w-3xl">
+  <h2 className="text-2xl font-semibold">What this tool does</h2>
+  <p className="mt-3 text-gray-700">
+    This JSON validator allows you to quickly check whether your JSON is valid.
+    It parses your input and shows an error message if the syntax is incorrect.
+  </p>
+
+  <h2 className="mt-8 text-2xl font-semibold">How to use</h2>
+  <ol className="mt-3 list-decimal space-y-2 pl-5 text-gray-700">
+    <li>Paste your JSON into the input field.</li>
+    <li>Click the "Validate JSON" button.</li>
+    <li>Check the result message below the input.</li>
+  </ol>
+
+  <h2 className="mt-8 text-2xl font-semibold">Use cases</h2>
+  <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-700">
+    <li>Debugging API responses</li>
+    <li>Validating configuration files</li>
+    <li>Checking JSON before sending requests</li>
+  </ul>
+</section>
+    </PageContainer>
   );
 }

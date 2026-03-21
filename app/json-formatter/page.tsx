@@ -5,6 +5,7 @@ import BackLink from "../../components/BackLink";
 import PageContainer from "../../components/PageContainer";
 import StatusMessage from "../../components/StatusMessage";
 import ToolHeader from "../../components/ToolHeader";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function JsonFormatterPage() {
   const [jsonInput, setJsonInput] = useState(`{"name":"Alice","age":25}`);
@@ -52,7 +53,7 @@ export default function JsonFormatterPage() {
         <div className="mt-4">
           <button
             onClick={handleFormat}
-            className="rounded-lg bg-black px-4 py-2 text-white"
+            className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
           >
             Format JSON
           </button>
@@ -60,6 +61,28 @@ export default function JsonFormatterPage() {
       </div>
 
       <StatusMessage message={message} error={error} />
+      <section className="mt-12 max-w-3xl">
+  <h2 className="text-2xl font-semibold">What this tool does</h2>
+  <p className="mt-3 text-gray-700">
+    This JSON formatter converts compact JSON into a readable, properly
+    indented format that is easier to understand and debug.
+  </p>
+
+  <h2 className="mt-8 text-2xl font-semibold">How to use</h2>
+  <ol className="mt-3 list-decimal space-y-2 pl-5 text-gray-700">
+    <li>Paste your JSON into the input field.</li>
+    <li>Click the "Format JSON" button.</li>
+    <li>The formatted JSON will appear in the same field.</li>
+  </ol>
+
+  <h2 className="mt-8 text-2xl font-semibold">Use cases</h2>
+  <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-700">
+    <li>Reading large JSON files</li>
+    <li>Debugging API responses</li>
+    <li>Preparing JSON for documentation</li>
+  </ul>
+</section>
+<RelatedTools currentHref="/json-formatter" />
     </PageContainer>
   );
 }

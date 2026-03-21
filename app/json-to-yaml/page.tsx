@@ -6,6 +6,7 @@ import BackLink from "../../components/BackLink";
 import PageContainer from "../../components/PageContainer";
 import StatusMessage from "../../components/StatusMessage";
 import ToolHeader from "../../components/ToolHeader";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function JsonToYamlPage() {
   const [jsonInput, setJsonInput] = useState(`{
@@ -61,7 +62,7 @@ export default function JsonToYamlPage() {
           <div className="mt-4">
             <button
               onClick={handleConvert}
-              className="rounded-lg bg-black px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
             >
               Convert to YAML
             </button>
@@ -82,6 +83,7 @@ export default function JsonToYamlPage() {
       </div>
 
       <StatusMessage message={message} error={error} />
+      <RelatedTools currentHref="/json-to-yaml" />
     </PageContainer>
   );
 }

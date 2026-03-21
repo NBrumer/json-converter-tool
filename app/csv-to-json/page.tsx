@@ -5,6 +5,7 @@ import BackLink from "../../components/BackLink";
 import PageContainer from "../../components/PageContainer";
 import StatusMessage from "../../components/StatusMessage";
 import ToolHeader from "../../components/ToolHeader";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function CsvToJsonPage() {
   const [csvInput, setCsvInput] = useState(`name,age,city
@@ -77,7 +78,7 @@ Bob,30,Paris`);
           <div className="mt-4">
             <button
               onClick={handleConvert}
-              className="rounded-lg bg-black px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
             >
               Convert to JSON
             </button>
@@ -98,6 +99,7 @@ Bob,30,Paris`);
       </div>
 
       <StatusMessage message={message} error={error} />
+      <RelatedTools currentHref="/csv-to-json" />
     </PageContainer>
   );
 }

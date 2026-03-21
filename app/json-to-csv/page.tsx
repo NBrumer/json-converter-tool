@@ -6,6 +6,7 @@ import BackLink from "../../components/BackLink";
 import PageContainer from "../../components/PageContainer";
 import StatusMessage from "../../components/StatusMessage";
 import ToolHeader from "../../components/ToolHeader";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function JsonToCsvPage() {
   const [jsonInput, setJsonInput] = useState(`[
@@ -124,7 +125,7 @@ export default function JsonToCsvPage() {
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               onClick={handleConvert}
-              className="rounded-lg bg-black px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
             >
               Convert to CSV
             </button>
@@ -160,7 +161,7 @@ export default function JsonToCsvPage() {
           <div className="mt-4">
             <button
               onClick={handleDownloadCsv}
-              className="rounded-lg bg-black px-4 py-2 text-white"
+              className="rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white"
             >
               Download CSV
             </button>
@@ -169,6 +170,28 @@ export default function JsonToCsvPage() {
       </div>
 
       <StatusMessage message={message} error={error} />
+      <RelatedTools currentHref="/json-to-csv" />
+      <section className="mt-12 max-w-3xl">
+  <h2 className="text-2xl font-semibold">What this tool does</h2>
+  <p className="mt-3 text-gray-700">
+    This tool converts JSON arrays into CSV format, making the data easier to
+    use in spreadsheets or analytics tools.
+  </p>
+
+  <h2 className="mt-8 text-2xl font-semibold">How to use</h2>
+  <ol className="mt-3 list-decimal space-y-2 pl-5 text-gray-700">
+    <li>Paste JSON array into the input field.</li>
+    <li>Click "Convert to CSV".</li>
+    <li>Download or copy the generated CSV.</li>
+  </ol>
+
+  <h2 className="mt-8 text-2xl font-semibold">Use cases</h2>
+  <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-700">
+    <li>Exporting API data</li>
+    <li>Working with Excel or Google Sheets</li>
+    <li>Data analysis workflows</li>
+  </ul>
+</section>
     </PageContainer>
   );
 }
